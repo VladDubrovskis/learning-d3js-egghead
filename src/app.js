@@ -1,20 +1,16 @@
-d3.json('data/data.json', function(data) {
+var div = d3.select('div');
+console.log(div.nodes());
 
-  var extent = d3.extent(data, function(d) {
-    return d.age;
-  });
+var divLinks = div.selectAll('a');
+console.log(divLinks.nodes());
 
-  console.log(extent);
+console.log(d3.selectAll('div a').nodes());
 
-  var scale = d3.scaleLinear()
-    .domain(extent)
-    .range([0, 600]);
+var actionLink = d3.selectAll('.action');
+console.log(actionLink.nodes());
 
-  console.log(scale(37));
+var secondLink = d3.selectAll('a:nth-child(2)');
+console.log(secondLink.nodes());
 
-  var ages = d3.set(data, function(d) {
-    return d.age;
-  });
-
-  console.log(ages.values());
-});
+var allLinks = d3.selectAll(document.links);
+console.log(allLinks.size());
